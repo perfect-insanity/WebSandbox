@@ -14,11 +14,11 @@ function bindOddEvenButton(btn, onOddClick, onEvenClick) {
     }
 }
 
-function openSidebar(btn, sidebarClass, expandedClass) {
+function addClass(btn, to, what) {
     bindOddEvenButton(btn, () => {
-        $(sidebarClass).addClass(expandedClass)
+        $(to).addClass(what)
     }, () => {
-        $(sidebarClass).removeClass(expandedClass)
+        $(to).removeClass(what)
     })
 }
 

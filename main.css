@@ -21,7 +21,7 @@
             transition: filter .5s ease-in-out;
         }
 
-        .sideNavExpanded ~ main {
+        .sideNav.expanded ~ main {
             filter: brightness(0.5);
         }
     }
@@ -214,13 +214,15 @@ button {
     line-height: var(--upper-nav-height);
 }
 
-.upperMainNav li:hover {
-    background-color: var(--upper-nav-hover-color);
-}
+@media screen and (hover: hover) {
+    .upperMainNav li:hover {
+        background-color: var(--upper-nav-hover-color);
+    }
 
-.upperMainNav li:hover:not(:first-child)::before,
-.upperMainNav li:hover:not(:last-child) + li::before {
-    height: 100%;
+    .upperMainNav li:hover:not(:first-child)::before,
+    .upperMainNav li:hover:not(:last-child) + li::before {
+        height: 100%;
+    }
 }
 
 .mobileToolsNav.mobileToolsNav {
@@ -245,11 +247,11 @@ button {
     height: 100%;
     padding-top: var(--upper-nav-height);
     transition: width .25s ease-in-out;
-    border-left: 1px solid var(--border-color);
 }
 
-.sideNav.sideNavExpanded {
+.sideNav.expanded {
     width: 60%;
+    border-left: 1px solid var(--border-color);
 }
 
 .sideNavContent {
@@ -262,6 +264,7 @@ button {
 }
 
 .sideMainNav li a {
+    width: 100%;
     padding: 1em;
 }
 
@@ -371,7 +374,7 @@ button {
     margin-bottom: var(--castle-box-gap);
 }
 
-.castleBox:last-child .castleDesc:is(:hover, :active) {
+.castleBox:last-child .castleDesc:is(:hover, .expanded) {
     margin-bottom: var(--castle-box-gap);
 }
 
@@ -397,7 +400,7 @@ button {
     transition-timing-function: ease-in-out;
 }
 
-.castleDesc:is(:hover, :active) {
+.castleDesc:is(:hover, .expanded) {
     max-height: var(--castle-max-box-height);
 }
 
@@ -417,7 +420,7 @@ button {
     background: linear-gradient(transparent, white);
 }
 
-.castleDesc:is(:hover, :active) .castleDescMask {
+.castleDesc:is(:hover, .expanded) .castleDescMask {
     top: var(--castle-max-mask-height);
 }
 
@@ -480,12 +483,17 @@ button {
 
 @media screen and (min-width: 720px) {
     .card {
-        transition-timing-function: ease-in-out;
-        transition-duration: .5s;
         border-radius: 3px;
         --card-width: 15em;
     }
+}
 
+@media screen and (min-width: 720px) and (hover: hover) {
+    .card {
+        transition-timing-function: ease-in-out;
+        transition-duration: .5s;
+    }
+    
     .card:hover {
         transform: scale(1.1);
     }
