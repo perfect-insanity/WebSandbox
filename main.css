@@ -214,7 +214,7 @@ button {
     line-height: var(--upper-nav-height);
 }
 
-@media screen and (hover: hover) {
+@media (hover: hover) {
     .upperMainNav li:hover {
         background-color: var(--upper-nav-hover-color);
     }
@@ -355,10 +355,10 @@ button {
 .castleBox {
     display: flex;
     --castle-box-height: 200px;
-    --castle-max-box-height: 1500px;
+    --castle-box-expanded-height: 1500px;
     --castle-header-height: calc(1.5em * 1.25 + 1em);
-    --castle-mask-height: calc(var(--castle-box-height) - var(--castle-header-height));
-    --castle-max-mask-height: calc(var(--castle-max-box-height) - var(--castle-header-height));
+    --castle-desc-height: calc(var(--castle-box-height) - var(--castle-header-height));
+    --castle-desc-expanded-height: calc(var(--castle-box-expanded-height) - var(--castle-header-height));
     --castle-box-gap: 2.5em
 }
 
@@ -374,15 +374,15 @@ button {
     margin-bottom: var(--castle-box-gap);
 }
 
-.castleBox:last-child .castleDesc:is(:hover, .expanded) {
-    margin-bottom: var(--castle-box-gap);
-}
-
 .castleImage,
 .castleImage img {
     width: 350px;
     height: var(--castle-box-height);
     object-fit: fill;
+}
+
+.castleDesc {
+    padding: 0 1em;
 }
 
 .castleHeader {
@@ -391,22 +391,22 @@ button {
     width: 100%;
 }
 
-.castleDesc {
+.castleDescContent {
+    position: relative;
     overflow-y: hidden;
-    min-height: var(--castle-box-height);
-    max-height: var(--castle-box-height);
-    padding: 0 1em;
+    min-height: var(--castle-desc-height);
+    max-height: var(--castle-desc-height);
+    margin-top: 1em;
     transition: max-height 1s, margin-bottom .5s;
     transition-timing-function: ease-in-out;
 }
 
-.castleDesc:is(:hover, .expanded) {
-    max-height: var(--castle-max-box-height);
+.castleBox:last-child .castleDescContent:is(:hover, .expanded) {
+    margin-bottom: var(--castle-box-gap);
 }
 
-.castleDescContent {
-    position: relative;
-    margin-top: 1em;
+.castleDescContent:is(:hover, .expanded) {
+    max-height: var(--castle-desc-expanded-height);
 }
 
 .castleDescMask {
@@ -415,13 +415,13 @@ button {
     right: 0;
     bottom: 0;
     left: 0;
-    height: var(--castle-mask-height);
+    height: var(--castle-desc-height);
     transition: top 1s ease-in-out;
     background: linear-gradient(transparent, white);
 }
 
-.castleDesc:is(:hover, .expanded) .castleDescMask {
-    top: var(--castle-max-mask-height);
+.castleDescContent:is(:hover, .expanded) .castleDescMask {
+    top: var(--castle-desc-expanded-height);
 }
 
 /******* ГУСИ *******/
@@ -493,7 +493,7 @@ button {
         transition-timing-function: ease-in-out;
         transition-duration: .5s;
     }
-    
+
     .card:hover {
         transform: scale(1.1);
     }

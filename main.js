@@ -22,6 +22,10 @@ function addClass(btn, to, what) {
     })
 }
 
+function expand(btn, collapsible) {
+    addClass(btn, collapsible, "expanded")
+}
+
 function like(btn) {
     bindOddEvenButton(btn, () => {
         $(btn).html("favorite");
