@@ -244,8 +244,8 @@ button {
     width: 0;
     height: 100%;
     padding-top: var(--upper-nav-height);
+    transition: width .25s ease-in-out;
     border-left: 1px solid var(--border-color);
-    transition: width .5s ease-in-out;
 }
 
 .sideNav.sideNavExpanded {
@@ -312,9 +312,14 @@ button {
     resize: none;
     font: unset;
     border: none;
-    border-radius: 3px;
     outline: 1px solid var(--border-color);
     --textarea-border-width: 1px;
+}
+
+@media screen and (min-width: 70em) {
+    .reviewContent textarea {
+        border-radius: 3px;
+    }
 }
 
 .reviewContent textarea:focus {
@@ -424,7 +429,7 @@ button {
 }
 
 .gooseImage {
-    width: var(--content-width);
+    width: min(100%, var(--content-width));
     filter: brightness(0.5);
 }
 
@@ -445,17 +450,16 @@ button {
     justify-content: space-evenly;
     padding-bottom: 2em;
     row-gap: 2em;
-    --card-width: 15em;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     width: var(--card-width);
     max-height: calc(var(--card-width) * 3.5 / 2);
-    transition-timing-function: ease-in-out;
-    transition-duration: .5s;
     border: 1px solid var(--border-color);
-    border-radius: 3px;
     box-shadow: 0 0 5px 1px var(--border-color);
+    --max-image-width: 360px;
 }
 
 .card h2,
@@ -464,7 +468,8 @@ button {
 }
 
 .card img {
-    width: var(--card-width);
+    align-self: center;
+    width: min(var(--card-width), var(--max-image-width));
     aspect-ratio: 3 / 2;
 }
 
@@ -474,6 +479,13 @@ button {
 }
 
 @media screen and (min-width: 720px) {
+    .card {
+        transition-timing-function: ease-in-out;
+        transition-duration: .5s;
+        border-radius: 3px;
+        --card-width: 15em;
+    }
+
     .card:hover {
         transform: scale(1.1);
     }
@@ -485,6 +497,15 @@ button {
 
     .card:hover .hiddenCardContent {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .card {
+        border-right: unset;
+        border-left: unset;
+        border-radius: 0;
+        --card-width: var(--content-width);
     }
 }
 
@@ -543,4 +564,3 @@ button {
 .squareContainer.triggered:hover .square {
     opacity: 1;
 }
-
