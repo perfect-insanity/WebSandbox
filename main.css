@@ -1,0 +1,546 @@
+:root {
+    --border-color: #d6d6d6;
+    --main-background-color: #eee;
+    --upper-nav-background-color: #fff;
+    --upper-nav-hover-color: #f6f6f6;
+    --standard-text-color: black;
+    --upper-nav-height: 4em;
+    --content-width: 70em;
+    --bigger-font-size: 4em;
+    --tools-menu-side-padding: 1em;
+}
+
+@media screen and (max-width: 720px) {
+    :root {
+        --content-width: 100%;
+        --bigger-font-size: 3em;
+    }
+
+    @media screen and (max-width: 720px) {
+        main {
+            transition: filter .5s ease-in-out;
+        }
+
+        .sideNavExpanded ~ main {
+            filter: brightness(0.5);
+        }
+    }
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body,
+main {
+    margin: 0;
+    background: var(--main-background-color);
+}
+
+section {
+    background: white;
+    box-shadow: 0 0 5px 1px var(--border-color);
+}
+
+section:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+img {
+    display: block;
+}
+
+h2 {
+    display: block;
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+p {
+    margin: 1em 0;
+}
+
+button {
+    all: unset;
+}
+
+::selection {
+    background: #ccc;
+}
+
+.overlay {
+    z-index: 1;
+    background: var(--upper-nav-background-color);
+    box-shadow: 0 0 5px 0 var(--border-color);
+}
+
+.standardWidth {
+    max-width: var(--content-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.paragraphs p:first-child {
+    margin-top: 0;
+}
+
+.paragraphs p:last-child {
+    margin-bottom: 0;
+}
+
+.bigText {
+    padding: 4rem 0;
+    font-size: var(--bigger-font-size);
+    font-weight: 100;
+    text-align: center;
+}
+
+.bigText + * {
+    padding-top: 0;
+}
+
+.anchor {
+    position: relative;
+    top: calc(0em - var(--upper-nav-height));
+    display: block;
+    visibility: hidden;
+}
+
+/******* ГОРИЗОНТАЛЬНОЕ МЕНЮ *******/
+
+.inlineMenu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inlineMenu ul {
+    display: inline-flex;
+    flex-direction: row;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.inlineMenu li {
+    display: flex;
+    align-items: center;
+}
+
+.inlineMenu a {
+    text-decoration: none;
+    color: var(--standard-text-color);
+}
+
+.inlineMenu button {
+    cursor: pointer;
+}
+
+.toolsMenu {
+    user-select: none;
+    column-gap: 1em;
+}
+
+/******* БЛОК СО СКРОЛЛОМ *******/
+
+.scrollContainer {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.scroller {
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroller::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: var(--main-background-color);
+}
+
+.scroller.transparentTrack::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-image: linear-gradient(180deg, #d0368a, #708ad4);
+}
+
+/******* ВЕРХНЕЕ МЕНЮ *******/
+
+@media screen and (min-width: 720px) {
+    .mobileToolsNav.mobileToolsNav,
+    .sideNav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .upperMainNav.upperMainNav {
+        display: none;
+    }
+}
+
+.upperNav {
+    position: sticky;
+    top: 0;
+    height: var(--upper-nav-height);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.upperNavContent,
+.upperNavContent a {
+    height: 100%;
+}
+
+.upperMainNav li:not(:first-child)::before {
+    height: 66%;
+    content: "";
+    border-left: 1px solid var(--border-color);
+}
+
+.upperMainNav li > * {
+    padding: 0 2em;
+}
+
+.upperMainNav {
+    line-height: var(--upper-nav-height);
+}
+
+.upperMainNav li:hover {
+    background-color: var(--upper-nav-hover-color);
+}
+
+.upperMainNav li:hover:not(:first-child)::before,
+.upperMainNav li:hover:not(:last-child) + li::before {
+    height: 100%;
+}
+
+.mobileToolsNav.mobileToolsNav {
+    padding-left: var(--tools-menu-side-padding);
+}
+
+.upperToolsNav.upperToolsNav {
+    padding-right: var(--tools-menu-side-padding);
+}
+
+.upperToolsNav button {
+    height: 100%;
+}
+
+/******* БОКОВОЕ МЕНЮ *******/
+
+.sideNav {
+    position: fixed;
+    left: 0;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    padding-top: var(--upper-nav-height);
+    border-left: 1px solid var(--border-color);
+    transition: width .5s ease-in-out;
+}
+
+.sideNav.sideNavExpanded {
+    width: 60%;
+}
+
+.sideNavContent {
+    flex-direction: column;
+}
+
+.sideMainNav.sideMainNav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sideMainNav li a {
+    padding: 1em;
+}
+
+.sideMainNav li:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/******* БЛОК С ОТЗЫВОМ *******/
+
+.reviewBox {
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+}
+
+.reviewBox.smoothAnimation {
+    transition: height .5s ease-in-out;
+}
+
+.reviewBox.expanded {
+    height: 20em;
+    border-top: 1px solid var(--border-color);
+}
+
+.reviewContent {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em 0;
+    gap: 1em;
+}
+
+.reviewHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 1em;
+}
+
+.reviewContent textarea {
+    flex-grow: 1;
+    min-height: 1.3em;
+    padding: 1em;
+    resize: none;
+    font: unset;
+    border: none;
+    border-radius: 3px;
+    outline: 1px solid var(--border-color);
+    --textarea-border-width: 1px;
+}
+
+.reviewContent textarea:focus {
+    outline: 2px solid #d0368a;
+}
+
+/* ИНТРО */
+
+.introContainer {
+    padding: 0 3em 4rem;
+    text-align: center;
+}
+
+.introContainer .bigText:not(:first-child) {
+    padding-top: 1.5em;
+}
+
+.introContainer .bigText {
+    padding-bottom: 0.333em;
+}
+
+.introContainer p {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+/******* ЗАМКИ *******/
+
+.castleBox {
+    display: flex;
+    --castle-box-height: 200px;
+    --castle-max-box-height: 1500px;
+    --castle-header-height: calc(1.5em * 1.25 + 1em);
+    --castle-mask-height: calc(var(--castle-box-height) - var(--castle-header-height));
+    --castle-max-mask-height: calc(var(--castle-max-box-height) - var(--castle-header-height));
+    --castle-box-gap: 2.5em
+}
+
+@media screen and (max-width: 720px) {
+    .castleBox {
+        align-items: center;
+        flex-direction: column;
+        row-gap: 1em;
+    }
+}
+
+.castleBox:not(:last-child) {
+    margin-bottom: var(--castle-box-gap);
+}
+
+.castleBox:last-child .castleDesc:is(:hover, :active) {
+    margin-bottom: var(--castle-box-gap);
+}
+
+.castleImage,
+.castleImage img {
+    width: 350px;
+    height: var(--castle-box-height);
+    object-fit: fill;
+}
+
+.castleHeader {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.castleDesc {
+    overflow-y: hidden;
+    min-height: var(--castle-box-height);
+    max-height: var(--castle-box-height);
+    padding: 0 1em;
+    transition: max-height 1s, margin-bottom .5s;
+    transition-timing-function: ease-in-out;
+}
+
+.castleDesc:is(:hover, :active) {
+    max-height: var(--castle-max-box-height);
+}
+
+.castleDescContent {
+    position: relative;
+    margin-top: 1em;
+}
+
+.castleDescMask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: var(--castle-mask-height);
+    transition: top 1s ease-in-out;
+    background: linear-gradient(transparent, white);
+}
+
+.castleDesc:is(:hover, :active) .castleDescMask {
+    top: var(--castle-max-mask-height);
+}
+
+/******* ГУСИ *******/
+
+.gooseLayer {
+    position: relative;
+    overflow: hidden;
+}
+
+.gooseImage {
+    width: var(--content-width);
+    filter: brightness(0.5);
+}
+
+.gooseCaption {
+    position: absolute;
+    right: 0;
+    left: 0;
+    color: white;
+    --scroll-speed-increase: 0.4;
+}
+
+/******* КАРТОЧКИ *******/
+
+.cardsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 2em;
+    row-gap: 2em;
+    --card-width: 15em;
+}
+
+.card {
+    width: var(--card-width);
+    max-height: calc(var(--card-width) * 3.5 / 2);
+    transition-timing-function: ease-in-out;
+    transition-duration: .5s;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: 0 0 5px 1px var(--border-color);
+}
+
+.card h2,
+.cardContent {
+    margin: 1rem 1rem 0;
+}
+
+.card img {
+    width: var(--card-width);
+    aspect-ratio: 3 / 2;
+}
+
+.hiddenCardContent {
+    margin: 1rem 0;
+    font-size: .8em;
+}
+
+@media screen and (min-width: 720px) {
+    .card:hover {
+        transform: scale(1.1);
+    }
+
+    .hiddenCardContent {
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+    }
+
+    .card:hover .hiddenCardContent {
+        opacity: 1;
+    }
+}
+
+/******* КВАДРАТЫ *******/
+
+.squareContainer {
+    display: grid;
+    height: var(--square-container-height);
+    --square-container-height: calc(100vh - var(--upper-nav-height));
+    --container-square-side: min(var(--square-container-height), var(--content-width));
+    --animation-trigger-offset: 90%;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(5, calc(var(--container-square-side) / 5));
+    grid-template-rows: repeat(5, calc(var(--container-square-side) / 5));
+}
+
+.square {
+    transition: transform 2s, opacity 2s;
+    background: black;
+    aspect-ratio: 1;
+}
+
+.square-1 {
+    width: calc(var(--container-square-side) / 5);
+}
+
+.square-2 {
+    width: calc(var(--container-square-side) / 10);
+}
+
+.square-3 {
+    width: calc(var(--container-square-side) / 15);
+}
+
+.square-4 {
+    width: calc(var(--container-square-side) / 20);
+}
+
+.square-5 {
+    width: calc(var(--container-square-side) / 25);
+}
+
+.square:not(.square-1) {
+    opacity: 0;
+}
+
+.squareContainer.triggered:hover :nth-child(2n) {
+    transform: rotate(0.5turn);
+}
+
+.squareContainer.triggered:hover :nth-child(2n + 1) {
+    transform: rotate(-0.5turn);
+}
+
+.squareContainer.triggered:hover .square {
+    opacity: 1;
+}
+

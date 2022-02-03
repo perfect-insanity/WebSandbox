@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Sandbox</title>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+<nav class="sideNav overlay">
+    <div class="inlineMenu sideNavContent">
+        <ul class="sideMainNav">
+            <li>
+                <a href="#intro">Приветики</a>
+            </li>
+            <li>
+                <a href="#castles">Замки</a>
+            </li>
+            <li>
+                <a href="#geese">Гуси</a>
+            </li>
+            <li>
+                <a href="#animals">Банда</a>
+            </li>
+            <li>
+                <a href="#square">Квадрат</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="upperNav overlay">
+    <div class="inlineMenu standardWidth upperNavContent">
+        <ul class="upperMainNav">
+            <li>
+                <a href="#intro">Приветики</a>
+            </li>
+            <li>
+                <a href="#castles">Замки</a>
+            </li>
+            <li>
+                <a href="#geese">Гуси</a>
+            </li>
+            <li>
+                <a href="#animals">Банда</a>
+            </li>
+            <li>
+                <a href="#square">Квадрат</a>
+            </li>
+        </ul>
+        <ul class="toolsMenu mobileToolsNav">
+            <li>
+                <button onclick="openSidebar(this, '.sideNav', 'sideNavExpanded')" class="material-icons-outlined">menu</button>
+            </li>
+        </ul>
+        <ul class="toolsMenu upperToolsNav">
+            <li>
+                <button onclick="openReviewBox(this, '.reviewBox', 'smoothAnimation', 'expanded')"
+                        class="material-icons-outlined">comment
+                </button>
+            </li>
+            <li>
+                <button onclick="like(this)" class="material-icons">favorite_border</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<aside class="reviewBox overlay">
+    <div class="reviewContent standardWidth">
+        <div class="reviewHeader">
+            <label for="review">Напишите здесь свой отзыв</label>
+            <div class="inlineMenu">
+                <ul class="toolsMenu reviewButtons">
+                    <li>
+                        <button class="material-icons">check</button>
+                    </li>
+                    <li>
+                        <button onclick="openReviewBox(this, '.reviewBox', 'smoothAnimation', 'expanded')"
+                                class="material-icons">
+                            expand_more
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="clearTextarea(this, '#review')" class="material-icons-outlined">backspace
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <textarea id="review" class="scroller transparentTrack" placeholder="Даже не знаю, что и сказать..."></textarea>
+    </div>
+</aside>
+
+<main class="standardWidth">
+
+    <div class="anchor" id="intro"></div>
+    <section>
+        <div class="introContainer">
+            <div class="bigText">
+                Приветик
+            </div>
+            <p>Этот сайт создан просто по приколу, что-то может не работать или работать криво. Будьте к этому морально
+                готовы и запаситесь валерьянкой.</p>
+            <div class="bigText">
+                Вас уже заждались
+            </div>
+            <p>Работает он исключительно с клиентской стороны. Кнопка лайка наверху ничего не делает и даже не
+                сохраняется, если что.</p>
+            <div class="bigText">
+                Листайте скорее
+            </div>
+            <p>...но не слишком быстро, чтобы все успело прогрузиться.</p>
+        </div>
+    </section>
+
+    <div class="anchor" id="castles"></div>
+    <section>
+        <div class="bigText">А теперь поговорим о замках</div>
+
+        <div class="castleBox">
+            <div class="castleImage">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Schloss_Chambord_nachts_2.JPG/320px-Schloss_Chambord_nachts_2.JPG"
+                     alt="Замок Шамбор">
+            </div>
+            <div class="castleDesc">
+                <div class="castleHeader">
+                    <h2>Замок Шамбор</h2>
+                    <div class="inlineMenu castleDescUtils">
+                        <ul>
+                            <li>
+                                <a href="//ru.wikipedia.org/wiki/Замок_Шамбор">
+                                    <span class="material-icons-outlined">info</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="castleDescContent">
+                    <div class="castleDescMask"></div>
+                    <div class="paragraphs">
+                        <p>Зaмок Шамбoр или Шамбoрский замок (фр. Château de Chambord) — один из замков Луары. Построен
+                            по
+                            приказу Франциска I, который хотел быть ближе к любимой даме — графине Тури, жившей
+                            неподалёку.</p>
+                        <p>Строительство велось между 1519 и 1547 годами на изгибе реки Коссон (фр. Cosson) — небольшого
+                            притока реки Бёврон (фр. Beuvron), впадающей в Луару, приблизительно в 6 км от левого берега
+                            Луары и в 14 км на восток от Блуа во французском департаменте Луар и Шер (номер департамента
+                            41).</p>
+                        <p>Имя архитектора неизвестно, но исследования доказывают участие в проекте Леонардо да Винчи,
+                            бывшего в то время архитектором при дворе короля Франциска I, но умершего за несколько
+                            месяцев
+                            до начала строительства, а также участие Доменико да Кортона, прозванного Боккадор.</p>
+                        <p>План замка нарисован вокруг центрального объекта, названного «донжоном», потому что, хоть он
+                            и не
+                            предназначался никогда для отражения атак, но построен по образцу укреплённых замков
+                            Средневековья. Внутри донжона находятся 5 жилых этажей. На каждом этаже по 4 квадратных и 4
+                            круглых помещения; четыре коридора между помещениями, как будто с четырёх сторон света,
+                            ведут к
+                            двойной лестнице в центре. Король Франциск I впоследствии расширил замок и квартировал в
+                            более
+                            просторных помещениях восточного крыла. В западном крыле была построена часовня, законченная
+                            Жаном ле Гумбль (фр. Jean le Humble). Подобное расположение часовни и королевских покоев
+                            было
+                            необычным для того времени: поместив себя в направлении Иерусалима, король хотел показать
+                            себя
+                            правителем духовной власти в своём королевстве.</p>
+                        <p>Поговаривали, что Франциск I со своим другом Жаном ле Гумблем хотели даже изменить русло
+                            течения
+                            Луары, чтобы она текла прямо перед замком, но отказались от такой идеи.</p>
+                        <p>Двойная, двухзаходная винтовая лестница в самом центре замка более чем хорошо передаёт
+                            творческий
+                            стиль Леонардо да Винчи. Двухзаходная — из двух лестниц спиралью, поворачивающихся в одном и
+                            том
+                            же направлении, но ни разу не пересекающихся, так чтобы спускавшиеся могли избежать встречи
+                            с
+                            теми, кто поднимался им навстречу, и наоборот. По этой монументальной лестнице с резным
+                            орнаментом можно подняться на большую террасу, также задуманную Леонардо, полюбоваться на
+                            дымоходы и капители крыши и обойти донжон по периметру. Над лестницей возвышается маяковая
+                            башенка, видная и внутри здания с нижних этажей. Она возвышается над всеми каминными
+                            трубами,
+                            достигая высоты 32 м; на самом верху не привычный крест, а королевская лилия.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="castleBox">
+            <div class="castleImage">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Chateau_de_Chenonceau_2008E.jpg/320px-Chateau_de_Chenonceau_2008E.jpg"
+                     alt="Замок Шенонсо">
+            </div>
+            <div class="castleDesc">
+                <div class="castleHeader">
+                    <h2>Замок Шенонсо</h2>
+                    <div class="inlineMenu castleDescUtils">
+                        <ul>
+                            <li>
+                                <a href="//ru.wikipedia.org/wiki/Замок_Шенонсо">
+                                    <span class="material-icons-outlined">info</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="castleDescContent">
+                    <div class="castleDescMask"></div>
+                    <div class="paragraphs">
+                        <p>Замок Шенонсо (фр. Château de Chenonceau) расположен около небольшой одноимённой деревни
+                            Шенонсо
+                            во французском департаменте Эндр и Луара. Входит в число замков, обычно называемых замками
+                            Луары. Имеет «народное» название — «дамский замок». Один из наиболее любимых, известных и
+                            посещаемых замков Франции. Является частной собственностью, но открыт для посещения.</p>
+                        <p>Поместье, где возвышается сегодня замок Шенонсо, принадлежало с 1243 года семье де Марк,
+                            выходцам
+                            из Оверни. Их собственностью была и находившаяся здесь древняя крепость, окружённая водяными
+                            рвами и связанная с берегом реки Шер подъёмным мостом. Рядом с крепостью стояла
+                            мельница.</p>
+                        <p>Во времена правления Карла VI Жан де Марк разместил в своей крепости английский гарнизон, что
+                            побудило короля приказать срыть все оборонительные укрепления и закрепить земли за их
+                            законными
+                            владельцами. Денежные затруднения заставили семью продать свой удел Томасу Бойе, интенданту
+                            по
+                            финансовым делам в Нормандии. В 1512 году он купил также и крепость. Влюблённый в
+                            ренессансный
+                            стиль, Бойе решил разрушить старый замок, за исключением донжона, чтобы возвести новое
+                            сооружение.</p>
+                        <p>На руинах мельницы была воздвигнута прямоугольная конструкция с выступающими угловыми
+                            башнями,
+                            окружившими с четырёх сторон вестибюль со стрельчатыми сводами. На нижнем этаже находились
+                            четыре комнаты, соединённые с четырьмя другими комнатами второго этажа широкой прямой
+                            лестницей.
+                            В начале XVI века начался постепенный отказ от винтовых лестниц, которые стали заменять
+                            лестницами с прямыми маршами. Огромные затраты на строительные работы объясняют девиз,
+                            который
+                            семья Бойе приказала выгравировать вместе с их инициалами Т. В. К.: «Кто сюда когда-нибудь
+                            придет, пусть вспомнит обо мне».</p>
+                        <p>Строительные работы, которые вела в отсутствие мужа Екатерина Боне, жена Томаса, были
+                            завершены в
+                            1521 году, после чего кардинал Боне, епископ Буржа, освятил капеллу замка. В 1524 году Томас
+                            Бойе умер в Италии, куда он отправился в свите короля, его жена скончалась двумя годами
+                            позже.
+                            После перехода владения в руки их сына Антуана замок был конфискован Франциском I под
+                            предлогом
+                            компенсации за ряд нарушений в финансовых делах, за которые Томас нёс ответственность. По
+                            некоторым источникам, экспроприация 1533 года была продиктована желанием короля обладать
+                            прекрасным поместьем, славившимся своими охотничьими угодьями. Диана всегда имела
+                            большое влияние на дофина Генриха, который, став в 1547 году королём, несмотря на свой брак
+                            с
+                            Екатериной Медичи, не переставал осыпать Диану всевозможными подарками, хотя он был младше
+                            её на
+                            19 лет. Вскоре замок Шенонсо стал собственностью Дианы вопреки всем законам, запрещавшим
+                            отчуждение владений, принадлежавших королю. Диана де Пуатье с 1551 года начала работы по
+                            благоустройству владения, включая перепланировку парка и фруктового сада, в котором росли
+                            овощи
+                            и фрукты, считавшиеся в ту пору экзотическими, например артишоки и дыни.</p>
+                        <p>В 1559 году Генрих II скончался от смертельной раны, нанесённой ему на турнире копьём графа
+                            Монтгомери. Королева, став регентшей, поспешила вернуть замок Шенонсо. Диана поняла, что
+                            лучше
+                            уступить, и удалилась, а вскоре умерла в возрасте 66 лет.</p>
+                        <p>В 1580 году архитектор Андруэ Дюсерсо воплотил замысел Филибера Делорма, построив на мосту
+                            через
+                            реку Шер новое крыло. Эта двухэтажная конструкция представляла собой два длинных фасада,
+                            прорезанных ритмично чередующимися окнами, ризалитами, люкарнами. Верхний этаж,
+                            оборудованный
+                            как бальный зал, был богато декорирован, как и вся остальная часть замка. Роскошные
+                            праздники
+                            закончились со смертью Екатерины в 1589 году. </p>
+                        <p>В 1733 году герцог Бурбонский продал замок богатому землевладельцу-банкиру Клоду Дюпэну
+                            (Claude
+                            Dupin). Его жена, поклонница искусств, науки, литературы и театра, открыла в Шенонсо модный
+                            салон, на котором мелькали имена многих знаменитостей той эпохи. Луиза Дюпэн устроила
+                            небольшой
+                            театр с показом спектаклей и оборудовала физический кабинет. Комнаты старых апартаментов
+                            были
+                            заново меблированы и стали более уютными.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="castleBox">
+            <div class="castleImage">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Schloss_Augustusburg%2C_Southern_Facade%2C_November_2017_-02.jpg/320px-Schloss_Augustusburg%2C_Southern_Facade%2C_November_2017_-02.jpg"
+                     alt="Аугустусбург">
+            </div>
+            <div class="castleDesc">
+                <div class="castleHeader">
+                    <h2>Аугустусбург и Фалькенлуст</h2>
+                    <div class="inlineMenu castleDescUtils">
+                        <ul>
+                            <li>
+                                <a href="//ru.wikipedia.org/wiki/Аугустусбург_и_Фалькенлуст">
+                                    <span class="material-icons-outlined">info</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="castleDescContent">
+                    <div class="castleDescMask"></div>
+                    <div class="paragraphs">
+                        <p>Дворец Аугустусбург (нем. Augustusburg) и охотничий замок Фалькенлуст (нем. Falkenlust)
+                            расположены в садовом ландшафте города Брюль и относятся к самым ранним образцам архитектуры
+                            рококо в Германии XVIII века. В 1984 году причислены к списку объектов Всемирного наследия
+                            ЮНЕСКО.</p>
+                        <p>Оба замка возведены в начале XVIII века по распоряжению архиепископа и курфюрста кёльнского
+                            Клеменса Августа Баварского (1700—1761). Архитектором дворца Аугустусбург стал Йохан Конрад
+                            Шлаун, который спроектировал его в U-образной форме с трёмя основными и двумя мансардными
+                            этажами. Охотничий замок Фалькенлуст был построен архитектором Франсуа де Кювийе между 1729
+                            и
+                            1740 годами, как вспомогательное здание.</p>
+                        <p>ба сооружения связываются друг с другом широким парком. Дизайнером дворцового комплекса
+                            зелёных
+                            насаждений выступил Доминик Жирар. В 1800-х годах часть парка, где расположились цветочные
+                            сады,
+                            подверглась реконструкции Петером Йозефом Ленне.</p>
+                        <p>В начале XIX века рейнская область, где расположились замки, была оккупирована Наполеоном.
+                            Когда
+                            в 1809 году он увидел Аугустусбург, то расстроился из-за того, что не может увезти этот
+                            дворец к
+                            себе во Францию. После освобождения Рейнланда в 1815 году он переходит во владение Пруссии.
+                            С
+                            1877 года дворец в качестве своей резиденции использует кайзер Вильгельм I.</p>
+                        <p>После Второй мировой войны Аугустусбург использовался главами Германии для проведения
+                            многочисленных государственных приёмов. Всего за послевоенное время здесь побывало более 100
+                            глав иностранных государств и правительств. Это было обусловлено близким расположением по
+                            отношению к Бонну, который являлся столицей ФРГ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="anchor" id="geese"></div>
+    <section>
+        <div class="bigText">А что вы думаете о гусях?</div>
+        <div class="gooseLayer">
+            <img class="gooseImage" src="//upload.wikimedia.org/wikipedia/commons/3/39/Domestic_Goose.jpg"
+                 alt="Гусь-красавчик">
+            <div class="gooseCaption bigText" data-increase-scroll-speed>Ну разве он не красавчик?</div>
+        </div>
+        <div class="gooseLayer">
+            <img class="gooseImage" src="//upload.wikimedia.org/wikipedia/commons/0/04/Embden_goose_at_zoo.jpg"
+                 alt="Гусь машет крыльями">
+            <div class="gooseCaption bigText" data-increase-scroll-speed>Как же он хорош</div>
+        </div>
+    </section>
+
+    <div class="anchor" id="animals"></div>
+    <section>
+        <div class="bigText">Но что мы все о гусях</div>
+        <div class="cardsContainer">
+            <div class="card scrollContainer">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Їжак_звичайний_біля_Голосіївського_лісу.jpg/320px-Їжак_звичайний_біля_Голосіївського_лісу.jpg"
+                     alt="Ёж">
+                <h2 class="cardHeader">Ёж</h2>
+                <div class="cardContent scrollContainer">Еж колючий, к слову.
+                    <div class="hiddenCardContent scroller paragraphs">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card scrollContainer">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Großer_Ameisenbär_Zoo_Děčín_%281%29.jpg/320px-Großer_Ameisenbär_Zoo_Děčín_%281%29.jpg"
+                     alt="Муравьед">
+                <h2 class="cardHeader">Муравьед</h2>
+                <div class="cardContent scrollContainer">Муравьед ест муравьев, и не только.
+                    <div class="hiddenCardContent scroller paragraphs">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card scrollContainer">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Capivara%28Hydrochoerus_hydrochaeris%29.jpg/320px-Capivara%28Hydrochoerus_hydrochaeris%29.jpg"
+                     alt="Капибара">
+                <h2 class="cardHeader">Капибара</h2>
+                <div class="cardContent scrollContainer">Капибара копит на бар.
+                    <div class="hiddenCardContent scroller paragraphs">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card scrollContainer">
+                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg/569px-Raccoon_%28Procyon_lotor%29_2.jpg"
+                     alt="Енот">
+                <h2 class="cardHeader">Енот</h2>
+                <div class="cardContent scrollContainer">Енот хочет немного нот.
+                    <div class="hiddenCardContent scroller paragraphs">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="anchor" id="square"></div>
+    <section>
+        <div class="squareContainer" data-trigger-animation>
+            <div class="square square-5"></div>
+            <div class="square square-4"></div>
+            <div class="square square-3"></div>
+            <div class="square square-4"></div>
+            <div class="square square-5"></div>
+
+            <div class="square square-4"></div>
+            <div class="square square-3"></div>
+            <div class="square square-2"></div>
+            <div class="square square-3"></div>
+            <div class="square square-4"></div>
+
+            <div class="square square-3"></div>
+            <div class="square square-2"></div>
+            <div class="square square-1"></div>
+            <div class="square square-2"></div>
+            <div class="square square-3"></div>
+
+            <div class="square square-4"></div>
+            <div class="square square-3"></div>
+            <div class="square square-2"></div>
+            <div class="square square-3"></div>
+            <div class="square square-4"></div>
+
+            <div class="square square-5"></div>
+            <div class="square square-4"></div>
+            <div class="square square-3"></div>
+            <div class="square square-4"></div>
+            <div class="square square-5"></div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
