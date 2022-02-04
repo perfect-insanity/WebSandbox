@@ -141,7 +141,7 @@ button {
 }
 
 .scroller {
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 5px;
 }
 
@@ -152,10 +152,6 @@ button {
 .scroller::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: var(--main-background-color);
-}
-
-.scroller.transparentTrack::-webkit-scrollbar-track {
-    background-color: transparent;
 }
 
 .scroller::-webkit-scrollbar-thumb {
