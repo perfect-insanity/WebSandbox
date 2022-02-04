@@ -15,16 +15,6 @@
         --content-width: 100%;
         --bigger-font-size: 3em;
     }
-
-    @media screen and (max-width: 720px) {
-        main {
-            transition: filter .5s ease-in-out;
-        }
-
-        .sideNav.expanded ~ main {
-            filter: brightness(0.5);
-        }
-    }
 }
 
 html {
@@ -173,7 +163,7 @@ button {
     background-image: linear-gradient(180deg, #d0368a, #708ad4);
 }
 
-/******* ВЕРХНЕЕ МЕНЮ *******/
+/******* ПЕРЕКЛЮЧАТЕЛЬ ВЕРХНЕГО И БОКОВОГО МЕНЮ *******/
 
 @media screen and (min-width: 720px) {
     .mobileToolsNav.mobileToolsNav,
@@ -187,6 +177,8 @@ button {
         display: none;
     }
 }
+
+/******* ВЕРХНЕЕ МЕНЮ *******/
 
 .upperNav {
     position: sticky;
@@ -252,6 +244,16 @@ button {
 .sideNav.expanded {
     width: 60%;
     border-left: 1px solid var(--border-color);
+}
+
+@media screen and (max-width: 720px) {
+    main {
+        transition: filter .5s ease-in-out;
+    }
+
+    .sideNav.expanded ~ main {
+        filter: brightness(0.5);
+    }
 }
 
 .sideNavContent {
@@ -401,12 +403,12 @@ button {
     transition-timing-function: ease-in-out;
 }
 
-.castleBox:last-child .castleDescContent:is(:hover, .expanded) {
-    margin-bottom: var(--castle-box-gap);
-}
-
 .castleDescContent:is(:hover, .expanded) {
     max-height: var(--castle-desc-expanded-height);
+}
+
+.castleBox:last-child .castleDescContent:is(:hover, .expanded) {
+    margin-bottom: var(--castle-box-gap);
 }
 
 .castleDescMask {
@@ -415,7 +417,6 @@ button {
     right: 0;
     bottom: 0;
     left: 0;
-    height: var(--castle-desc-height);
     transition: top 1s ease-in-out;
     background: linear-gradient(transparent, white);
 }
