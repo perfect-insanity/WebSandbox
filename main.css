@@ -343,9 +343,16 @@ button {
 }
 
 .introContainer p {
-    margin: 0;
     font-size: 2em;
     font-weight: 100;
+}
+
+.introContainer p:first-of-type {
+    margin-top: 0;
+}
+
+.introContainer p:last-of-type {
+    margin-bottom: 0;
 }
 
 /******* ЗАМКИ *******/
